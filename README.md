@@ -83,20 +83,3 @@ To understand whether discounting was driving low profitability, I grouped order
 
 The company’s core issue is not weak demand, but excessive discounting. Full-price sales are highly profitable, while medium and high discount levels systematically destroy margin across the business.
 
-
-### Example:
-
-```sql
-CREATE TABLE superstore_clean AS
-SELECT
-    `Order ID` AS order_id,
-    `Order Date` AS order_date,
-    `Category` AS category,
-    `Sub-Category` AS sub_category,
-    `Product Name` AS product_name,
-    CAST(`Sales` AS REAL) AS sales,
-    CAST(`Profit` AS REAL) AS profit,
-    CAST(`Discount` AS REAL) AS discount
-FROM superstore
-
-

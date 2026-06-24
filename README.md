@@ -71,3 +71,27 @@ SELECT
     CAST(`Profit` AS REAL) AS profit,
     CAST(`Discount` AS REAL) AS discount
 FROM superstore;
+
+### Discount Impact Analysis
+
+To understand whether discounting was driving low profitability, I grouped orders into discount bands and measured revenue, profit, and margin by category.
+
+#### Key Findings
+
+- All categories were strongly profitable at full price:
+
+  - Technology: 33.96% margin
+
+  - Office Supplies: 29.52% margin
+
+  - Furniture: 22.71% margin
+
+- Margins declined sharply as discount levels increased
+
+- Furniture dropped from a 22.7% margin at 0% discount to -18.3% at medium discounts and -70.9% at high discounts
+
+- Office Supplies and Technology showed the same pattern, indicating that profit leakage was not limited to Furniture
+
+#### Business Insight
+
+The company’s core issue is not weak demand, but excessive discounting. Full-price sales are highly profitable, while medium and high discount levels systematically destroy margin across the business.

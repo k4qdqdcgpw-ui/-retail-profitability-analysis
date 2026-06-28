@@ -1,5 +1,7 @@
 Retail Profit Leakage Analysis (SQL)
 
+Dashboard can be viewed here:
+https://public.tableau.com/app/profile/mohamed.eltohami/viz/Superstore_17826712116790/ProfitOverview?publish=yes
 ⸻
 
 Executive Summary

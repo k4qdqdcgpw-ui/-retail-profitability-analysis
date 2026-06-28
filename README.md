@@ -1,85 +1,95 @@
-# Retail Profit Leakage Analysis (SQL)
+Retail Profit Leakage Analysis (SQL)
 
-## Executive Summary
+⸻
 
-Retail businesses often grow revenue while profit declines due to pricing inefficiencies and excessive discounting.
+Executive Summary
 
-This project analyzes a retail transaction dataset to identify the drivers of **profit leakage**, with a focus on category performance, discount behavior, and structurally unprofitable products.
+Retail companies often experience strong revenue growth while profitability declines due to pricing inefficiencies and excessive discounting.
 
-### Key Findings
-- Furniture has the lowest profitability (~2.5% margin) compared to Technology and Office Supplies (~17%)
-- Discounts above ~30% consistently eliminate profitability
-- Tables and Bookcases are the primary loss-driving sub-categories
-- Profit issues are driven by pricing strategy, not demand or sales volume
+This project analyzes a retail transaction dataset to identify key drivers of profit leakage, with a focus on category performance, discount behavior, and structurally unprofitable products.
 
----
+The analysis reveals that profitability issues are driven primarily by discounting strategy rather than demand or sales volume.
 
-## Business Problem
+⸻
 
-Retail companies often face the challenge of strong sales but weak profitability.
+Business Problem
 
-This analysis investigates:
+Retail organizations often face a disconnect between revenue growth and profitability.
 
-- Why Furniture significantly underperforms other categories
-- Which products and sub-categories generate persistent losses
-- How discount levels affect profitability
-- What pricing adjustments can improve overall margins
+This analysis addresses:
 
----
+* Why Furniture significantly underperforms other categories
+* Which sub-categories consistently generate losses
+* How discount levels impact profitability across categories
+* What pricing behaviors lead to margin erosion
 
-## Dataset
+⸻
 
-- Source: Superstore-style retail transaction dataset
-- Size: ~9,000+ rows
-- Key Fields:
-  - Order ID, Order Date
-  - Category, Sub-Category, Product Name
-  - Sales, Quantity, Discount, Profit
-  - Customer and geographic attributes
+Dataset
 
----
+* Source: Superstore-style retail transaction data
+* Size: ~9,000+ rows
 
-## Tools Used
+Key Fields:
 
-- SQL (MySQL Workbench / SQLite-compatible syntax)
-- Data cleaning and transformation via SQL
-- Aggregation-based exploratory analysis
-- Profitability segmentation and diagnostic analysis
+Order ID, Order Date
+Category, Sub-Category, Product Name
+Sales, Quantity, Discount, Profit
+Customer and geographic attributes
 
----
+⸻
 
-## Data Preparation
+Tools Used
 
-The raw dataset was transformed into an analysis-ready table for querying.
+* SQL (MySQL / SQLite-compatible syntax)
+* Data cleaning and transformation in SQL
+* Aggregation-based analysis (GROUP BY, CTEs)
+* Profitability segmentation
 
-### Steps:
-- Standardized column names
-- Converted numeric fields (Sales, Profit, Discount, Quantity)
-- Created structured table: `superstore_clean`
+⸻
 
+Data Preparation
 
+The raw dataset was transformed into an analysis-ready structure.
 
-### Discount Impact Analysis
+Steps:
 
-To understand whether discounting was driving low profitability, I grouped orders into discount bands and measured revenue, profit, and margin by category.
+* Standardized column formatting
+* Converted numeric fields (Sales, Profit, Discount)
+* Created clean analytical table (superstore_clean)
 
-#### Key Findings
+⸻
 
-- All categories were strongly profitable at full price:
+Key Findings
 
-  - Technology: 33.96% margin
+* Furniture has the lowest profitability (~2.5% margin) compared to Technology and Office Supplies (~17%)
+* Tables and Bookcases are the primary loss-driving sub-categories
+* Discounts above ~30% consistently eliminate profitability
+* Profitability issues are structural and concentrated in specific product groups rather than overall demand
 
-  - Office Supplies: 29.52% margin
+⸻
 
-  - Furniture: 22.71% margin
+Discount Impact Analysis
 
-- Margins declined sharply as discount levels increased
+Orders were grouped into discount bands to evaluate profitability behavior across pricing levels.
 
-- Furniture dropped from a 22.7% margin at 0% discount to -18.3% at medium discounts and -70.9% at high discounts
+Key Results:
 
-- Office Supplies and Technology showed the same pattern, indicating that profit leakage was not limited to Furniture
+* At 0% discount, all categories are strongly profitable:
+    * Technology: ~34% margin
+    * Office Supplies: ~30% margin
+    * Furniture: ~23% margin
+* Profitability declines sharply as discounts increase across all categories
+* Furniture is most sensitive to discounting:
+    * ~23% → -18% → -70% margin (as discount increases)
+* Technology and Office Supplies follow the same pattern, but with less severity
 
-#### Business Insight
+⸻
 
-The company’s core issue is not weak demand, but excessive discounting. Full-price sales are highly profitable, while medium and high discount levels systematically destroy margin across the business.
+Business Insight
 
+The primary driver of profit leakage is not demand weakness, but pricing strategy.
+
+While full-price transactions are highly profitable across all categories, increasing discount levels systematically erode margins and create structural losses—especially in Furniture.
+
+This suggests that optimizing discount strategy would have a higher impact on profitability than increasing sales volume.
